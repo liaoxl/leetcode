@@ -19,6 +19,7 @@ class Solution{
 			}
 			if(root->left==NULL && root->right==NULL)
 			{
+
 				return true;
 			}
 			if(root->left!=NULL && root->left->val >= root->val)
