@@ -13,30 +13,55 @@ class Solution{
 		RandomListNode *copyRandomList(RandomListNode *head)
 		{
 			RandomListNode root(0);
-			RandomListNode *p;
-			RandomListNode *phead=head;
-			p=&root;
+			root.next=head;
+			RandomListNode *p=head;
 
-			while(phead!=NULL)
+			if(p==NULL)
 			{
-				p->next=new RandomListNode(phead->label);
-				p=p->next;
-				phead=phead->next;
+				return p;
 			}
-			p=&root, phead=head;
-			while(phead!=NULL)
+
+			while(p!=NULL)
 			{
-				if(phead->random==NULL)
+				RandomListNode *cpy=new RandomListNode(p->label);
+				cpy->next=p->next;
+				p->next=cpy;
+				p=cpy->next;
+			}
+			RandomListNode *oricur=head;
+			RandomListNode *cpycur=head->next;
+			while(oricur!=NULL)
+			{
+				if(oricur->random!=NULL)
 				{
-					phead=phead->next;
-					p=p->next;
+					cpycur->random=oricur->random->next;
+				}
+				oricur=cpycur->next;
+				if(oricur!=NULL)
+				{
+					cpycur=oricur->next;
 				}
 			}
+			oricur=head;
+			cpycur=head->next;
+			root.next=cpycur;
+			while(cpycur->next!=NULL)
+			{
+				oricur->next=cpycur->next;
+				cpycur->next=oricur->next->next;
 
+				oricur=oricur->next;
+				cpycur=cpycur->next;
+			}
+			oricur->next=NULL;
+			return root.next;
 		}
 };
 
 int main()
 {
+	RandomListNode head(-1);
+	Solution s;
+	s.copyRandomList(&head);
 	return 0;
 }
