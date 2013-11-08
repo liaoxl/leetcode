@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <queue>
 
 using namespace std;
 
@@ -17,24 +18,32 @@ class Solution{
 			{
 				return 0;
 			}
-			int sum=cmn(m-1, m+n-2);
-			for(int i=0; i<m; i++)
+			queue<pair<int,int> > myque;
+			int im=0, in=0;
+			int res=0;
+			myque.push(make_pair(im,in));
+			while(!myque.empty())
 			{
-				for(int j=0; j<n; j++)
+				int len=myque.size();
+				while(len-->0)
 				{
-					if(obstacleGrid[i][j]==1)
+					pair<int,int> cur=myque.front();
+					if(cur.first==m-1 && cur.second==n-1 && obstacleGrid[cur.first][cur.second]!=1)
 					{
-						sum-=(cmn(i,i+j)+cmn(m-i-1, m+n-i-j-2));
+						res++;
+						myque.pop();
+						continue;
 					}
+					if(cur.first<m-1 && obstacleGrid[cur.first+1][cur.second]!=1)
+					{
+						myque.push(make_pair(cur.first+1,cur.second));
+					}
+					if(cur.second<n-1 && obstacleGrid[cur.first][cur.second+1]!=1)
+					{
+						myque.push(make_pair(cur.first, cur.second+1));
+					}
+					myque.pop();
 				}
-			}
-		}
-		int cmn(int m, int n)
-		{
-			double res=1;
-			for(int i=1; i<=m; i++)
-			{
-				res *=(double)(n-m+i)/(double)i;
 			}
 			return res;
 		}
@@ -42,11 +51,11 @@ class Solution{
 
 int main()
 {
-	vector<int> a1(0);
-	vector<vector<int> > a;
-	a.push_back(a1);
+	vector<int> a1(3, 0);
+	vector<vector<int> > a(3,a1);
+	a[1][1]=1;
 	Solution s;
-	s.uniquePathsWithObstacles(a);
+	cout << s.uniquePathsWithObstacles(a);
 	return 0;
 }
 

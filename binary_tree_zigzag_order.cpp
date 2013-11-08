@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <queue>
+#include <stack>
+#include <algorithm>
 
 using namespace std;
 
@@ -26,51 +28,44 @@ class Solution{
 			queue<TreeNode *> tval;
 			tval.push(root);
 			int flag=0;
+
 			while(!tval.empty())
 			{
 				int len=tval.size();
 				level.clear();
-				if(!flag)
+				while(len-->0)
 				{
-					while(len-->0)
+					level.push_back(tval.front()->val);
+					if(tval.front()->left!=NULL)
 					{
-						level.push_back(tval.front()->val);
-						if(tval.front()->right!=NULL)
-						{
-							tval.push(tval.front()->right);
-						}
-						if(tval.front()->left!=NULL)
-						{
-							tval.push(tval.front()->left);
-						}
-						tval.pop();
+						tval.push(tval.front()->left);
 					}
-					flag=1;
+					if(tval.front()->right!=NULL)
+					{
+						tval.push(tval.front()->right);
+					}
+					tval.pop();
 				}
-				else
+				if(flag%2!=0)
 				{
-					while(len-->0)
-					{
-						level.push_back(tval.front()->val);
-						if(tval.front()->left!=NULL)
-						{
-							tval.push(tval.front()->left);
-						}
-						if(tval.front()->right!=NULL)
-						{
-							tval.push(tval.front()->right);
-						}
-						tval.pop();
-					}
-					flag=0;
+				    reverse(level.begin(), level.end());
 				}
+				flag++;
 				res.push_back(level);
 			}
+
 			return res;
 		}
 };
 
 int main()
 {
+	TreeNode root(1);
+	root.left=new TreeNode(2);
+	root.right=new TreeNode(3);
+	root.left->left=new TreeNode(4);
+	root.right->right=new TreeNode(5);
+	Solution s;
+	s.levelOrder(&root);
 	return 0;
 }
