@@ -2,6 +2,7 @@
  * substring_with_concatenation_of_all_words.cpp
  * Copyright (C) 2013 moondark <liaoxl2012@gmail.com>
  *
+ * http://liaoxl.github.io/blog/20131123/leetcode-scaw/
  * Distributed under terms of the MIT license.
  */
 

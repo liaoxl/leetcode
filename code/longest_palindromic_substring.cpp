@@ -2,6 +2,7 @@
  * longest_palindromic_substring.cpp
  * Copyright (C) 2013 moondark <liaoxl2012@gmail.com>
  *
+ * http://liaoxl.github.io/blog/20131125/leetcode-lps/
  * Distributed under terms of the MIT license.
  */
 

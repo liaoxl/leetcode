@@ -2,6 +2,7 @@
  * container_with_most_water.cpp
  * Copyright (C) 2013 moondark <liaoxl2012@gmail.com>
  *
+ * http://liaoxl.github.io/blog/20131115/leetcode-cwmw/
  * Distributed under terms of the MIT license.
  */
 

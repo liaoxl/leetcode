@@ -2,6 +2,7 @@
  * remove_nth_node_from_end_of_list.cpp
  * Copyright (C) 2013 moondark <liaoxl2012@gmail.com>
  *
+ * http://liaoxl.github.io/blog/20131121/leetcode-rnnfel/
  * Distributed under terms of the MIT license.
  */
 

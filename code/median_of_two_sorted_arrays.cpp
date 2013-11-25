@@ -2,6 +2,7 @@
  * median_of_two_sorted_arrays.cpp
  * Copyright (C) 2013 moondark <liaoxl2012@gmail.com>
  *
+ * http://liaoxl.github.io/blog/20131103/leetcode-median-of-two-sorted-arrays/
  * Distributed under terms of the MIT license.
  */
 

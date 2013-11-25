@@ -2,6 +2,7 @@
  * permutations2.cpp
  * Copyright (C) 2013 moondark <liaoxl2012@gmail.com>
  *
+ * http://liaoxl.github.io/blog/20131124/leetcode-permutations2/
  * Distributed under terms of the MIT license.
  */
 

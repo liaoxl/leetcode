@@ -2,6 +2,7 @@
  * roman_to_integer.cpp
  * Copyright (C) 2013 moondark <liaoxl2012@gmail.com>
  *
+ * http://liaoxl.github.io/blog/20131117/leetcode-rtoi/
  * Distributed under terms of the MIT license.
  */
 

@@ -2,6 +2,7 @@
  * next_permutation.cpp
  * Copyright (C) 2013 moondark <liaoxl2012@gmail.com>
  *
+ * http://liaoxl.github.io/blog/20131123/leetcode-np/
  * Distributed under terms of the MIT license.
  */
 
